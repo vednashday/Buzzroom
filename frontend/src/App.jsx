@@ -36,7 +36,7 @@ function App() {
           <Route path='/signup' element={!isAuthenticated ? <SignUpPage/> : <Navigate to="/" />} />
           <Route path='/login' element={!isAuthenticated ? <LoginPage/> : <Navigate to={isOnboarded ? "/":"/"} />} />
           <Route path='/notifications' element={isAuthenticated ? (<Layout showSidebar > <NotificationPage/> </Layout>) : (<Navigate to="/login" />)} />
-          <Route path='/call/:id' element={isAuthenticated ? (<Layout showSidebar><CallPage/></Layout>) : (<Navigate to="/login" />)} />
+          <Route path='/call/:id' element={isAuthenticated ? (<CallPage/>) : (<Navigate to="/login" />)} />
           <Route path='/search' element={isAuthenticated ? (<Layout showSidebar><SearchPage/></Layout>) : <Navigate to="/login" />} />         
           <Route path='/chat/:id' element={isAuthenticated ? (<Layout showSidebar><ChatPage/></Layout>) : (<Navigate to="/login" />)} />
           <Route path='/onboarding' element={isAuthenticated ? (
