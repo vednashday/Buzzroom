@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.use(protectRoute);
 
-router.get("/",getRecommendedUsers);
+router.get("/",getMyFriends);
 
 router.get("/friends",getMyFriends);
 
