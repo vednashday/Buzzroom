@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { getoutgoingFriendReqs, sendFriendRequest } from '../lib/api';
 import { CheckCircleIcon, UserPlusIcon } from 'lucide-react';
+import { axiosInstance } from '../lib/axios';
 
 const UserSearch = () => {
   const queryClient = useQueryClient();
@@ -62,9 +63,7 @@ const UserSearch = () => {
       setLoading(true);
       setError(null);
       try {
-        const res = await axios.get(`http://localhost:5001/api/users/search?q=${query}`, {
-          withCredentials: true,
-        });
+        const res = await axiosInstance.get(`/users/search?q=${query}`);
         setResults(res.data);
       } catch (err) {
         console.error("Search error:", err);
